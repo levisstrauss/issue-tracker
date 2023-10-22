@@ -8,4 +8,10 @@
        npm i react-icons@4.11.0
        npm i classnames@2.3.2
 
+     ---- Setting up prisma ----
+     npm i prisma@5.3.1
+     npx prisma init
+     this create tow things the prisma folder and the .env file
+     set up database to postgresql or mysql in schema.prisma
+
 
