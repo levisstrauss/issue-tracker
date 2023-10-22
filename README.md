@@ -14,4 +14,10 @@
      this create tow things the prisma folder and the .env file
      set up database to postgresql or mysql in schema.prisma
 
+     ---- Modeling ----
+     create the db model in schema.prisma
+     npx prisma format // to format the schema.prisma
+     npx prisma migrate dev --name init // to create the migration
+     give the name tothe migration
+
 
