@@ -6,4 +6,6 @@
      - Building the navigation bar
        react-icons.github.io/react-icons
        npm i react-icons@4.11.0
+       npm i classnames@2.3.2
+
 
