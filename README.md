@@ -27,4 +27,14 @@
      on the website and put it inside prisma folder client.ts
      - use it in the api to perform the crud operations
 
+    ----- Set up Radix UI ----
+    radix-ui.com
+    install the radix ui theme
+    npm install @radix-ui/themes
+    import this in the base layout
+    import '@radix-ui/themes/styles.css';
+    import the theme and wrap everything after body in base layout 
+    <Theme>
+    </Theme>
+
 
