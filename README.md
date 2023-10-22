@@ -20,4 +20,11 @@
      npx prisma migrate dev --name init // to create the migration
      give the name tothe migration
 
+     ----- Create API ----
+     validate the model with zod
+     npm i zod@3.22.2
+     use prismas client to create the CRUD operations cpy the code
+     on the website and put it inside prisma folder client.ts
+     - use it in the api to perform the crud operations
+
 
