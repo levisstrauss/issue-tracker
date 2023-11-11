@@ -37,4 +37,13 @@
     <Theme>
     </Theme>
 
+     <ThemePanel /> to control the theme it can be placed everywhere to
+     customize the theme
+
+     - set up the inter font in layout
+       const inter = Inter({
+       subsets: ['latin'],
+       variable: '--font-inter',
+     })
+
 
