@@ -628,5 +628,48 @@
           We need to extract the button in as separate component and render it outside of the loading component
 
 - Eighteenth commit to GitHub: Added the loading skeleton
+---
+### Showing Issue details page
+
+    - The  issue details page is a dynamic page based on the id of the issue
+     - issue: folder
+       |_ [id]: folder
+           |_ page.tsx // Where we define the issue details page
+     - Render a link in the issues page to the issue details page
+
+     * Usage:
+
+        // Issue details page
+       import prisma from "@/prisma/client";
+       import {notFound} from "next/navigation";
+
+        interface Props {
+        params: { id: string };
+        }
+        
+        const IssueDetailPage = async ({params}: Props) => {
+            const issue = await prisma.issue.findUnique({
+            where : {id: parseInt(params.id)},
+            });
+            if(!issue)
+            notFound();
+            return (
+                <div>
+                    <p>{issue.title}</p>
+                    <p>{issue.description}</p>
+                    <p>{issue.status}</p>
+                    <p>{issue.createdAt.toDateString()}</p>
+                </div>
+           );
+        };
+    
+        // Using it in the issues page as link to the title of the issue
+        export default IssueDetailPage;
+        <Link href={`/issues/${issue.id}`}>
+            <a className='text-blue-900 hover:text-zinc-800 transition-colors'>{issue.title}</a>
+        </Link>
+
+     - NB: in the issuedetails page if we wan to check for making sure that the id is just a number
+           if(typeof params.id !== 'number') notFound();  // if the id is not a number, return 404
 
         

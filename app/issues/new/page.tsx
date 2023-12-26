@@ -11,12 +11,7 @@ import {createIssueSchema} from "@/app/validationSchemas";
 import {z} from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
 import Spinner from "@/app/components/Spinner";
-//
-// interface IssueForm {
-//     title: string;
-//     description: string;
-// }
-// Automatically infer the type from the schema
+
 type IssueForm = z.infer<typeof createIssueSchema>;
 
 const NewIssuePage = () => {
