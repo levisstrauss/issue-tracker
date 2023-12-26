@@ -605,6 +605,28 @@
 
     * Usage:
         <IssueStatusBadge status={issue.status} />
-    
+
+- Seventeenth commit to GitHub: Built the issue status badge component
+---
+### Adding the Loading skeleton using React loading skeleton
+    - NB: When Next js find a loading component next to a page, it will render that loading component
+      while the page is loading
+    - npm install delay // To simulate the loading
+    - import delay from 'delay';
+    - await delay(2000); // Promise resolves after 2 seconds and renders the page
+
+    ---- install react skeleton loader ----
+    - Website: https://www.npmjs.com/package/react-loading-skeleton
+    - npm i react-loading-skeleton@3.3.1
+    - Added these two imports in the _app.tsx file
+        import { SkeletonTheme } from 'react-loading-skeleton';
+        import 'react-loading-skeleton/dist/skeleton.css';
+    - And replace everywhere we want to show the skeleton by:
+        <Skeleton />
+    - NB: Since that the skeleton is render inside of the loading component and because 
+          the buttom just at the top is always hiding while the skeleton is loading
+          We need to extract the button in as separate component and render it outside of the loading component
+
+- Eighteenth commit to GitHub: Added the loading skeleton
 
         

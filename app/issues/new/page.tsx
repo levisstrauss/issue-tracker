@@ -20,7 +20,6 @@ import Spinner from "@/app/components/Spinner";
 type IssueForm = z.infer<typeof createIssueSchema>;
 
 const NewIssuePage = () => {
-
     // States
     const [error, setError] = useState('');
     const [isSubmitting, setSubmitting] = useState(false);
