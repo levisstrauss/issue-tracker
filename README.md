@@ -524,4 +524,25 @@
 
 - Fourteenth commit to GitHub: Extracted the ErrorMessage component
 --- 
-      
+### Adding a spinner with tailwind
+    - Website: https://tw-elements.com/docs/standard/components/spinners/
+    - Create a new component called Spinner.tsx in the components folder
+    - Paste the code from the website for the spinner we want to use
+    - import Spinner from "@/app/components/Spinner";
+    - create a useState hook to set the loading state
+          const [isSubmitting, setSubmitting] = useState(false);
+    - We only wnat to show the spinner if the form is submitting
+    * Usage:
+        try {
+            setSubmitting(true);
+            await axios.post('/api/issues', data);
+            router.push('/issues');
+        } catch (error) {
+            setSubmitting(false);
+            setError("An unexpected error occurred.");
+        }
+    - Button disabled={isSubmitting} // Disable the button if the form is submitting
+        <Button disabled={isSubmitting}>Submit New Issue {isSubmitting && <Spinner />}</Button>
+
+- Fifteenth commit to GitHub: Added a spinner
+        
