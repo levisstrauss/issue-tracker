@@ -545,4 +545,34 @@
         <Button disabled={isSubmitting}>Submit New Issue {isSubmitting && <Spinner />}</Button>
 
 - Fifteenth commit to GitHub: Added a spinner
+
+---
+### New Feature: showing the issue using Prisma to fetch all the issue from the database
+    - In the issue page we need to fetch all the issues from the database
+    - import prisma from "@/prisma/client";
+    - const issues = await prisma.issue.findMany(); and make the component async
+    - Add the Radix UI table component with mobile responsive
+
+     <Table.Root variant='surface'>
+        <Table.Header>
+            <Table.Row>
+                <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell className='hidden md:table-cell'>Created</Table.ColumnHeaderCell>
+            </Table.Row>
+        </Table.Header>
+        <Table.Body>
+            {issues.map((issue) => (
+                <Table.Row key={issue.id}>
+                    <Table.Cell>
+                        {issue.title}
+                        <div className='block md:hidden'>{issue.status}</div>
+                    </Table.Cell>
+                    <Table.Cell className='hidden md:table-cell'>{issue.status}</Table.Cell>
+                    <Table.Cell className='hidden md:table-cell'>{issue.createdAt.toDateString()}</Table.Cell>
+                </Table.Row>
+            ))}
+        </Table.Body>
+    </Table.Root>
+- Sixteenth commit to GitHub: Show the issues 
         
