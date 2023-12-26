@@ -894,3 +894,12 @@
 
 - Thirtieth commit to GitHub: Fix caching issues
 ---
+
+### Improving the loading Experience 
+    - This code help us load a component dynamically
+        import  dynamic from "next/dynamic";
+        const IssueForm = dynamic(() => import('@/app/issues/_components/IssueForm'),
+           { ssr: false }
+        );
+- Thirty-first commit to GitHub: Improved the loading experience
+---
