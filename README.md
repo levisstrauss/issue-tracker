@@ -853,3 +853,20 @@
 
 - Twenty-eighth commit to GitHub:Build and API for updating issues
 ---
+### Updating the issue status
+    - In the useForm component, if we have an issue, we need to send a patch request
+      otherwise we need to send a post request
+    * usage
+        if (issue)
+            await axios.patch('/api/issues/' + issue.id, data);
+        else
+            await axios.post('/api/issues', data);
+    - Update the button labal accordingly
+         <Button disabled={isSubmitting}>
+            {issue ? 'Update Issue' : 'Submit New Issue'}
+            {isSubmitting && <Spinner />}
+         </Button>
+- Twenty-ninth commit to GitHub: Updated the issue 
+---
+
+    
