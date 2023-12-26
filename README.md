@@ -462,6 +462,10 @@
             />
             <Button>Submit New Issue</Button>
         </form>
+- Eleventh commit to GitHub: Handled form submission with React Hook Form
+
+---
+### Handling Errors and users feedback using try catch using a Callout component Radix UI
 
 
       
