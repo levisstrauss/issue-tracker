@@ -574,6 +574,7 @@
             ))}
         </Table.Body>
     </Table.Root>
+
 - Sixteenth commit to GitHub: Show the issues 
 
 ---
@@ -672,4 +673,12 @@
      - NB: in the issuedetails page if we wan to check for making sure that the id is just a number
            if(typeof params.id !== 'number') notFound();  // if the id is not a number, return 404
 
-        
+- Nineteenth commit to GitHub: Show the issue details page
+---
+### Formatting the issueDetails page content
+    - Heading component
+    - Flex component
+    - Card component
+    From Radix UI
+- Twentieth commit to GitHub: Formatted the issue details page content
+---
