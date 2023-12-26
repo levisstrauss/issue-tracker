@@ -679,6 +679,21 @@
     - Heading component
     - Flex component
     - Card component
-    From Radix UI
+      From Radix UI
 - Twentieth commit to GitHub: Formatted the issue details page content
 ---
+### Adding markdown preview: That will allow as to keep the correct content if we add markdown content
+    - To see the correct markdown content we can use the React markdown library
+    - Installation: npm i react-markdown@8.0.7
+    - import ReactMarkdown from 'react-markdown';
+    - Replace the markdown rendering section with:
+         <ReactMarkdown>{issue.description}</ReactMarkdown>
+    - Add the tailwind typography to style the markdown content
+          - Website: https://tailwindcss.com/docs/typography-plugin
+          - Intallation: npm install -D @tailwindcss/typography
+          - Add the plugin in the tailwind.config.js file
+              - require('@tailwindcss/typography'),
+          - Add the prose class to the div that wrap the markdown content
+              <div className='prose'>
+                <ReactMarkdown>{issue.description}</ReactMarkdown>
+              </div>
