@@ -275,7 +275,7 @@
     - import { z } from 'zod';
 
      * Code  // We validate the data that we receive from the client
-       const createIssueSchema = z.object({
+       const validationSchemas = z.object({
           title: z.string().min(1).max(255),
           description: z.string().min(1)
        })
@@ -292,7 +292,7 @@
 
         export async function POST(request: NextRequest){
            const body = await request.json();
-           const validation = createIssueSchema.safeParse(body);  // We use the validation schema to validate the body 
+           const validation = validationSchemas.safeParse(body);  // We use the validation schema to validate the body 
                                                                   // of the request
            if(!validation.success)  // if the validation is not successful
               return NextResponse.json(validation.error.errors, {status: 400}); // Return this error message
@@ -466,6 +466,49 @@
 
 ---
 ### Handling Errors and users feedback using try catch using a Callout component Radix UI
+    // The try catch block is used to handle errors
+    try {
+        await axios.post('/api/issues', data);
+        router.push('/issues');
+    } catch (error) {
+        setError("An unexpected error occurred.");
+    }
+    
+    // Using the callout component to display the error message
 
+    {error &&
+        <Callout.Root color="red" className="mb-5">
+            <Callout.Text>{error}</Callout.Text>
+        </Callout.Root>
+    }
+- Twelfth commit to GitHub: Handled errors and users feedback
+---
+### Implementing client side validation
+   
+    - NB: Since we can rely to the zod validation also to the client side validation
+      we need to move the old validation schema to the app folder where we gonna have all our 
+      validation and rename it to validationSchemas.ts and dont forget to export it in the api folder.
+
+    --------- We can use it using a validation resolvers ------------
+
+    - Website: https://react-hook-form.com/get-started#ValidationResolver
+    - Installation: npm install @hookform/resolvers@3.3.1
+
+    - This package allows react-hook form to integral various validation libraries
+
+    - import { zodResolver } from '@hookform/resolvers/zod';
+    - import {z} from 'zod';
+    - Allow the interface to be auto generated based on the schema validation
+       type IssueForm = z.infer<typeof validationSchemas>;
+    * Usage validationSchemas:
+        const { register, control, handleSubmit, formState: { errors } } = useForm<IssueForm>({
+            resolver: zodResolver(validationSchemas)
+        });
+    - We render the errors message bellow the input field
+        {errors.title && <Text color="red" as="p">{errors.title.message}</Text>}
+        NB: as='p' is used to render the error message as a paragraph
+
+- Thirteenth commit to GitHub: Implemented client side validation
+---
 
       
