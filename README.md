@@ -801,3 +801,11 @@
 
 - Twenty-sixth commit to GitHub: Apply the single responsibility principle
 ---
+
+### Building the Edit issue Page
+    - Putting an _components to a folder will prevent next js to treat as routing folder
+    - Create an edit folder with and render the same component to receive the data we want to
+      edit, call the database, fetch the data, and populate it in the form.
+- Twenty-seventh commit to GitHub: Built the edit issue page
+---
+
