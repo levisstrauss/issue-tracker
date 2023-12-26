@@ -753,3 +753,28 @@
         );
      };
     export default LoadingIssueDetailsPage;
+
+    == Also for the new page ==
+    import {Box} from "@radix-ui/themes";
+    import Skeleton from "react-loading-skeleton";
+    import 'react-loading-skeleton/dist/skeleton.css';
+    
+    const LoadingNewIssuePage = () => {
+        return (
+            <Box className="max-w-xl">
+                <Skeleton />
+                <Skeleton height="20rem"/>
+            </Box>
+        );
+    };
+    
+    export default LoadingNewIssuePage;
+
+- Twenty-third commit to GitHub: Add Additional loading skeletons
+---
+### Refactoring import 
+    - This section is basically about refactoring the import in statement of the project
+- Twenty-fourth commit to GitHub: Refactored the import statement
+---
+
+
