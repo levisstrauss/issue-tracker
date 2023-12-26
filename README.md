@@ -510,5 +510,18 @@
 
 - Thirteenth commit to GitHub: Implemented client side validation
 ---
+### Extract errors message component
+    - Extract the ErrorMessage component 
+    * Usage: if there is is an error message display it otherwise return null
+        const ErrorMessage = ({ children }: PropsWithChildren) => {
+        if (!children) return null;
+        return (
+            <Text color="red" as="p">{children}</Text>
+           )
+        }
+    - Usage: Using the ErrorMessage component
+        <ErrorMessage>{errors.title?.message}</ErrorMessage>
 
+- Fourteenth commit to GitHub: Extracted the ErrorMessage component
+--- 
       
