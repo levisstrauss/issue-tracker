@@ -697,3 +697,37 @@
               <div className='prose'>
                 <ReactMarkdown>{issue.description}</ReactMarkdown>
               </div>
+
+- Twenty-first commit to GitHub: Added markdown preview
+
+### Building a styled Linked component using the link component of Radix UI
+    - For that, we need to use the link component of Radix UI and replace it with the next link component
+    - import {Table, Link} from '@radix-ui/themes'
+    - This work but since we have a full reload of the page, we need to use the next link component
+       We need to create a custom component that will wrap both of them and use the next link component
+
+    import NextLink from 'next/link'
+    import { Link as RadixLink } from '@radix-ui/themes'
+    
+    interface Props {
+        href: string;
+        children: string;
+    }
+    const Link = ({ href, children }: Props) => {
+        return (
+            <NextLink href={href}>
+            <RadixLink>{children}</RadixLink>
+            </NextLink>
+      );
+    };
+    export default Link;
+    NB: This is very smart because we have here our radix link inside of the next link to avoid reloading
+         the page.
+    - Dont forget to pass: passHref legacyBehavior  to avoid errors with the next link component
+      <NextLink href={href} passHref legacyBehavior>
+            <RadixLink>{children}</RadixLink>
+        </NextLink>
+  
+- Twenty-second commit to GitHub: Built a styled Link component
+---
+

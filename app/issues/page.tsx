@@ -5,7 +5,8 @@ import prisma from "@/prisma/client";
 import IssueStatusBadge from "@/app/components/IssueStatusBadge";
 import  delay from "delay";
 import IssueActions from "@/app/issues/IssueActions";
-import Link from "next/link";
+import Link from "../components/Link";
+// import Link from "next/link";
 
 const IssuesPage = async () => {
     const issues = await prisma.issue.findMany();
@@ -19,8 +20,12 @@ const IssuesPage = async () => {
                 <Table.Header>
                     <Table.Row>
                         <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell className='hidden md:table-cell'>Created</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='hidden md:table-cell'>
+                            Status
+                        </Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='hidden md:table-cell'>
+                            Created
+                        </Table.ColumnHeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -37,7 +42,9 @@ const IssuesPage = async () => {
                             <Table.Cell className='hidden md:table-cell'>
                                 <IssueStatusBadge status={issue.status} />
                             </Table.Cell>
-                            <Table.Cell className='hidden md:table-cell'>{issue.createdAt.toDateString()}</Table.Cell>
+                            <Table.Cell className='hidden md:table-cell'>
+                                {issue.createdAt.toDateString()}
+                            </Table.Cell>
                         </Table.Row>
                     ))}
                 </Table.Body>

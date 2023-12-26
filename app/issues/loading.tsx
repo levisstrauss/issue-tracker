@@ -6,10 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import IssueActions from "@/app/issues/IssueActions";
 
 const LoadingIssuesPage = () => {
-
     const issues = [1,2, 3, 4, 5];
-
-
     return (
         <div>
             <IssueActions />
@@ -17,8 +14,12 @@ const LoadingIssuesPage = () => {
                 <Table.Header>
                     <Table.Row>
                         <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell className='hidden md:table-cell'>Created</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='hidden md:table-cell'>
+                            Status
+                        </Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='hidden md:table-cell'>
+                            Created
+                        </Table.ColumnHeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
