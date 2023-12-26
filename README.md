@@ -776,5 +776,21 @@
     - This section is basically about refactoring the import in statement of the project
 - Twenty-fourth commit to GitHub: Refactored the import statement
 ---
+### Adding the Edit Button to the IssueDetails page
+    - Set up the grid layout with Radix UI Grid component
+    - Mobile: Radix UI Breakpoints component
+    - <Grid columns={{ initial: '1', md: '2'}} gap='5'> // Space
+
+    ----- Radix UI Icons -------
+       - Website: https://radix-ui.com/icons
+       - Installation: npm i @radix-ui/react-icons
+       - import { Pencil2Icon } from '@radix-ui/react-icons';
+          - Usage:
+               <Button>
+                    <Pencil2Icon />
+                    <Link href={`/issues/${issue.id}/edit`}>Edit Issue</Link>
+               </Button>
+- Twenty-fifth commit to GitHub: Add the Edit Button
+---
 
 
