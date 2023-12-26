@@ -869,4 +869,28 @@
 - Twenty-ninth commit to GitHub: Updated the issue 
 ---
 
-    
+### Caching 
+    - Data cache: When we fecth data using fetch()
+       - Stored in the file system
+       - Permanent until we redeploy
+       - To desable that beahavior we can use the cache option
+          fetch(url, {cache: 'no-cache'}) or
+          fetch(url, {next: {revalidate: 3600}})
+    - Full Route Cache: Store output of static routes
+    - RouterCache: (Client-side Cache): Use to store the payload of pages in browser
+       - lasts for a session
+       - Gets refreshed when we reload the page
+
+    - NB: In next js, route whom doesn'thave parameter are treated as static route
+          and are cached by default and need to be disabled manually because they will
+          never load new changes until we redeploy the app.
+
+    ----- Desabling the cache -----
+    - Website: https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+      export const dynamic = 'force-dynamic'; // This will tell next js to opt out of static optimization
+                                        // and always render this page dynamically
+      or export const revalidate = 0;
+    - router.refresh(); // Auto refresh the page after redirection
+
+- Thirtieth commit to GitHub: Fix caching issues
+---

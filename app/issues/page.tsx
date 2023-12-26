@@ -46,4 +46,9 @@ const IssuesPage = async () => {
         </div>
     );
 };
+
+
+export const dynamic = 'force-dynamic'; // This will tell next js to opt out of static optimization
+//export const revalidate = 0;
+
 export default IssuesPage
