@@ -792,5 +792,12 @@
                </Button>
 - Twenty-fifth commit to GitHub: Add the Edit Button
 ---
+### Single Responsibility Principle: Software entities should have a single responsibility
+    - Apply the single responsibility principle to issueDetailsPage
+      Basically itis separating all component of our page in different components
+    - NB: Anytime we are importing a lot of import in one single file 
+          it is a good idea to separate them in different components using 
+          the single responsibility principle
 
-
+- Twenty-sixth commit to GitHub: Apply the single responsibility principle
+---
