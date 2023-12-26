@@ -730,4 +730,26 @@
   
 - Twenty-second commit to GitHub: Built a styled Link component
 ---
+### Adding a proper loading skeleton when we click on the issue link instead of Loading...
+    - React loading skeleton
+    - Website: https://github.com/dvtng/react-loading-skeleton
+    - Grab these two imports from the website
+        import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+        import 'react-loading-skeleton/dist/skeleton.css';
 
+    - Set up the skeleton Loading page
+      const LoadingIssueDetailsPage = () => {
+        return (
+            <Box className="max-w-xl">
+                <Skeleton />
+                <Flex className="space-x-3" my="2">
+                    <Skeleton width="5rem"/>
+                    <Skeleton width="8rem"/>
+                </Flex>
+                <Card className="prose" mt='4'>
+                    <Skeleton count={3}/>
+                </Card>
+            </Box>
+        );
+     };
+    export default LoadingIssueDetailsPage;
