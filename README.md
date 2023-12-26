@@ -391,3 +391,77 @@
         />
 - Tenth commit to GitHub: Added a markdown editor
 ---
+### Handle Form submission with React Hook Form
+    - Website: https://react-hook-form.com/
+    - Installation: npm install react-hook-form@7.46.1
+    - import { useForm, Controller } from 'react-hook-form';
+    - Create an instance of the useForm hook
+
+    - Usage:
+       interface IssueForm {
+            title: string;
+            description: string;
+      }
+    - In the component we create a new instance of the useForm hook
+    - Usage:
+         const { register, control, handleSubmit } = useForm<IssueForm>();
+
+        The different props are: name, onChange, onBlur, ref, value, checked, type, etc
+
+    *Usage:
+        <form className='max-w-xl space-y-3' onSubmit={handleSubmit((data) => console.log(data))}>
+            <TextField.Root>
+                <TextField.Input placeholder="Title" {...register('title')} />
+            </TextField.Root>
+            <Controller
+              name="description"
+              control={control}
+              render={({ field }) => <SimpleMDE placeholder={"Description"} {...field} />}
+            />
+            <Button>Submit New Issue</Button>
+        </form>
+
+    ----------------- Submitting the form to the Api using Axios -----------------
+
+    - Website: https://axios-http.com/docs/intro
+    - Installation: npm install axios@1.5.0
+    - import axios from 'axios';
+
+    * Usage:
+    <form className='max-w-xl space-y-3' onSubmit={handleSubmit(async (data) => {
+            await axios.post('/api/issues', data);
+        })}>
+            <TextField.Root>
+                <TextField.Input placeholder="Title" {...register('title')} />
+            </TextField.Root>
+            <Controller
+              name="description"
+              control={control}
+              render={({ field }) => <SimpleMDE placeholder={"Description"} {...field} />}
+            />
+            <Button>Submit New Issue</Button>
+    </form>
+   
+    ----------------- Redirect the user to the issues page -----------------
+
+    - import {useRouter} from "next/navigation";
+    - const router = useRouter();
+
+    * Usage:
+        <form className='max-w-xl space-y-3' onSubmit={handleSubmit(async (data) => {
+            await axios.post('/api/issues', data);
+            router.push('/issues');
+        })}>
+            <TextField.Root>
+                <TextField.Input placeholder="Title" {...register('title')} />
+            </TextField.Root>
+            <Controller
+              name="description"
+              control={control}
+              render={({ field }) => <SimpleMDE placeholder={"Description"} {...field} />}
+            />
+            <Button>Submit New Issue</Button>
+        </form>
+
+
+      
