@@ -1015,7 +1015,92 @@
 - Thirty-ninth commit to GitHub: Configure Google Provider
 ---
 
+### Adding the prisma adapter to allow Next to store the information of the login user
+    - Website: https://next-auth.js.org/adapters
+    - Chose the prisma adapter
+    - Installation: 
+       npm install @prisma/client     => this already installed
+       npm install prisma --save-dev  => this already installed
+       npm install @next-auth/prisma-adapter@1.0.7
+       import { PrismaAdapter } from "@next-auth/prisma-adapter"
+       import prisma from "@/prisma/client"
+    - GO to: https://authjs.dev/reference/adapter/prisma
+    - Paste this code into schema.prisma
+ 
+      model Account {
+        id                 String  @id @default(cuid())
+        userId             String
+        type               String
+        provider           String
+        providerAccountId  String
+        refresh_token      String?  @db.Text
+        access_token       String?  @db.Text
+        expires_at         Int?
+        token_type         String?
+        scope              String?
+        id_token           String?  @db.Text
+        session_state      String?
+        
+        user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+        
+        @@unique([provider, providerAccountId])
+        }
+        
+        model Session {
+        id           String   @id @default(cuid())
+        sessionToken String   @unique
+        userId       String
+        expires      DateTime
+        user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+        }
+        
+        model User {
+        id            String    @id @default(cuid())
+        name          String?
+        email         String?   @unique
+        emailVerified DateTime?
+        image         String?
+        accounts      Account[]
+        sessions      Session[]
+        }
+        
+        model VerificationToken {
+        identifier String
+        token      String   @unique
+        expires    DateTime
+        
+        @@unique([identifier, token])
+    }
 
+    - Create a migration
+    - npx prisma migrate dev and give a name
+    - http://localhost:3000/api/auth/signin // Test in browser
+    - http://localhost:3000/api/auth/signout
+
+    - All the route code
+
+        import NextAuth from "next-auth"
+        import GoogleProvider from "next-auth/providers/google";
+        import { PrismaAdapter } from "@next-auth/prisma-adapter"
+        import { PrismaClient } from "@prisma/client"
+        const prisma = new PrismaClient()
+        const handler = NextAuth({
+        adapter: PrismaAdapter(prisma),
+            providers: [
+            GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            })
+        ],
+            session: {
+            strategy: "jwt",
+          }
+        })
+
+    export { handler as GET, handler as POST }
+
+- Fortieth commit to GitHub: Add the prisma adapter
+---
       
     
     
