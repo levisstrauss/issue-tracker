@@ -964,3 +964,58 @@
         Generation using terminal: openssl rand -base64 32 and use it as our secret key
 - Thirty-eighth commit to GitHub: Set up NextAuth.js
 ---
+
+### Configure Google Provider to allow people to login with their Google account
+    - Website: https://console.cloud.google.com/
+    - Create a new project and give it a name
+    - Go back next auth website: https://next-auth.js.org/configuration/initialization#route-handlers-app
+    - Under the providers section, to the left => find Google and click on it
+    - Click the link for configuring provider
+    - Configure the consent screen by clicking on it => This is the screen that will show up when the user
+      try to login with their Google account.
+    - Select external for user type and create
+    - Provide the app name we set earlier
+    - Add support personal email 
+    - We don't need a logo and other informations
+    - Provide develeper contact information which is your email and save
+    - Configure scope and permissions by clicking on Add and remove scopes
+    - Select Email and profile and update in the bottom
+    - Click save and continue
+    - Add Test user by clicking on the Add Users button
+    - Save and continue
+    - Review all info -> Back to dashboard
+    - The AUTH consent screen is confugured
+  
+    - Go credentials to the left 
+    - Click on create credentials and select OAuth client ID
+    - Select application type: we application
+    - Set the app name
+    - Add URI: http://localhost:3000
+    - Add Authorized redirect URIs find in the nextAuth website
+       For production: https://{YOUR_DOMAIN}/api/auth/callback/google
+       For development: http://localhost:3000/api/auth/callback/google
+    - Click create
+    
+    - Copy the auth client Id an store it in our env file
+         GOOGLE_CLIENT_ID="your client id"
+    - Copy the client secret
+          GOOGLE_CLIENT_SECRET="your client secret"
+
+    - On the Auth website:
+      this is an example of how to configure the Google provider
+
+      import GoogleProvider from "next-auth/providers/google";
+        providers: [
+            GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            })
+        ]
+    - Copy this in the route file
+- Thirty-ninth commit to GitHub: Configure Google Provider
+---
+
+
+      
+    
+    
