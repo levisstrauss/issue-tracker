@@ -1101,6 +1101,40 @@
 
 - Fortieth commit to GitHub: Add the prisma adapter
 ---
-      
-    
+
+### Adding the login and logout link in the navbar component
+    - import {useSession} from "next-auth/react";
+    - const {status, data: session } = useSession(); // To get the current auth session 
+    - Since this useSession() need to be wrap in the <SessionProvider>
+      we can create a auth folder in app and create that <SessionProvider> called <AuthProvider>
+
+        'use client';
+
+        import React, {PropsWithChildren} from 'react';
+        import {SessionProvider} from "next-auth/react";
+        
+        const AuthProvider = ({children}: PropsWithChildren) => {
+           return (
+            <SessionProvider>
+            {children}
+            </SessionProvider>
+          );
+        };
+        export default AuthProvider;
+    - Finally we can wrap everything inside of the body in layout component
+      with the AuthProvider component.
+
+      <AuthProvider>
+          <Theme accentColor="violet">
+              <Navbar/>
+              <main className='p-5'>
+                  <Container>
+                      {children}
+                  </Container>
+              </main>
+          </Theme>
+      </AuthProvider>
+    - And that will solve that issue
+- Forty-first commit to GitHub: Added the login and logout link in the navbar component
+---
     
