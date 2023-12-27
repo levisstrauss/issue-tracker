@@ -908,3 +908,7 @@
 
 - Thirty-second commit to GitHub: Added the delete button
 ---
+### Adding a confirmation dialog while the delete button is clicked
+    - Baically use the Dialog component of Radix UI
+- Thirty-third commit to GitHub: Show a confirmation dialog
+---
