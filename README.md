@@ -965,7 +965,7 @@
 - Thirty-eighth commit to GitHub: Set up NextAuth.js
 ---
 
-### Configure Google Provider to allow people to login with their Google account
+### Configure Google Provider to allow people to the login with their Google account
     - Website: https://console.cloud.google.com/
     - Create a new project and give it a name
     - Go back next auth website: https://next-auth.js.org/configuration/initialization#route-handlers-app
@@ -1137,4 +1137,13 @@
     - And that will solve that issue
 - Forty-first commit to GitHub: Added the login and logout link in the navbar component
 ---
+### Push the login and logout link to the right of the navbar
+    - import {Flex} from "@radix-ui/themes";
+    - <Flex css={{justifyContent: space-between }}> // Share the avalable space between the two elements
+    - Solve the align with FLex of Radiux UI
+    - Use Container component of Radix UI to wrap the Navbar component that will make sure that 
+      Everything is aligned perfectly
+- Forty-second commit to GitHub: Change the layout of the navbar
+---
+
     
