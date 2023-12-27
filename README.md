@@ -923,3 +923,7 @@
    - Delete an issue is straight forward following the logic.
 - Thirty-fifth commit to GitHub: Deleted an issue
 ---
+### Handling errors if something happened while deleting the issue
+    - use catch block to handle the error
+- Thirty-sixth commit to GitHub: Handled errors while deleting an issue
+---
