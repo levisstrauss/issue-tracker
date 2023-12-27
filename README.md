@@ -931,3 +931,36 @@
     - Simple
 - Thirty-seventh commit to GitHub: Improve the user experience while deleting an issue
 ---
+
+### Remove duplicate skeleton
+    - We remove duplicate skeleton by reoganization all the file to avoid having 
+      parent loding file
+
+### Authentication with NextAuth.js
+    - Website: https://next-auth.js.org/getting-started/example
+    - Installation: npm install next-auth@4.23.1 // NextAuth is becoming Auth.js in the future
+    - New guide for React 13.2 or above: 
+        https://next-auth.js.org/configuration/initialization#route-handlers-app
+    - Here is where to create the route file: /app/api/auth/[...nextauth]/route.ts
+    
+    -api folder
+      |_ auth folder
+          |_ [...nextauth] folder
+              |_ route.ts
+
+    - Copy and paste the code from the website
+
+      import NextAuth from "next-auth"
+        const handler = NextAuth({
+        ...
+        })
+        
+        export { handler as GET, handler as POST }
+
+    - Set these two file in the .env file
+        NEXTAUTH_URK="http://localhost:3000"
+        NEXTAUTH_SECRET="mysecret"
+    - We can install openssl to generate a secret
+        Generation using terminal: openssl rand -base64 32 and use it as our secret key
+- Thirty-eighth commit to GitHub: Set up NextAuth.js
+---
