@@ -927,3 +927,7 @@
     - use catch block to handle the error
 - Thirty-sixth commit to GitHub: Handled errors while deleting an issue
 ---
+### Improve the user experience while deleting an issue
+    - Simple
+- Thirty-seventh commit to GitHub: Improve the user experience while deleting an issue
+---

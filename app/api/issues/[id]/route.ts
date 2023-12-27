@@ -2,6 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 import {issueSchema} from "@/app/validationSchemas";
 import prisma from "@/prisma/client";
 
+
 // Updating an issue API endpoint
 export async function PATCH (request: NextRequest, { params }: {params: {id: string}}) {
     //Get the issue from the database
