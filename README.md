@@ -919,3 +919,7 @@
 
 - Thirty-fourth commit to GitHub: Built an API endpoint to delete an issue
 ---
+### Deleting an issue using the API
+   - Delete an issue is straight forward following the logic.
+- Thirty-fifth commit to GitHub: Deleted an issue
+---
