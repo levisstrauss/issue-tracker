@@ -912,3 +912,10 @@
     - Baically use the Dialog component of Radix UI
 - Thirty-third commit to GitHub: Show a confirmation dialog
 ---
+
+### Building an Delete API endpoint
+    - Same scenario as the update API endpoint
+    - build an API endpoint to delete an issue a test postman
+
+- Thirty-fourth commit to GitHub: Built an API endpoint to delete an issue
+---
