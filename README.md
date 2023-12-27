@@ -903,3 +903,8 @@
         );
 - Thirty-first commit to GitHub: Improved the loading experience
 ---
+### Deleting an Issue
+   - Straight forward adding a delete button to the edit page
+
+- Thirty-second commit to GitHub: Added the delete button
+---
